@@ -36,19 +36,26 @@ class UI(QMainWindow):
         self.file_counter = self.file_list[self.image_counter]
         pixmap = QtGui.QPixmap(self.file_counter)
         self.label.setPixmap(pixmap)
+        print(self.image_counter)
 
 
     def NextImage(self):
         try:
+            self.file_counter = self.file_list[abs(self.image_counter + 1)]
             self.image_counter += 1
-            self.file_counter = self.file_list[self.image_counter]
             pixmap = QtGui.QPixmap(self.file_counter)
             self.label.setPixmap(pixmap)
         except :
-            print(f' ')
+            pass
 
     def PreviosImage(self):
-        print(self.file_counter)
+        try:
+            self.file_counter = self.file_list[abs(self.image_counter - 1)]
+            self.image_counter -= 1
+            pixmap = QtGui.QPixmap(self.file_counter)
+            self.label.setPixmap(pixmap)
+        except:
+            pass
 
 
 def main():
