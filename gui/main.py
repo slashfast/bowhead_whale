@@ -7,6 +7,7 @@ import sys
 
 class UI(QMainWindow):
 
+
     def __init__(self):
         super(UI, self).__init__()
         uic.loadUi("main.ui", self)
@@ -30,34 +31,24 @@ class UI(QMainWindow):
     def OpenFile(self):
         options = QFileDialog.Options()
         folder = QFileDialog.getExistingDirectory(self)
-        print(str(folder))
-        self.file_list = [str(path) for path in [*Path(str(folder)).glob('*')]]
-        # self.file_list = [*Path(str(folder)).glob('*')]
-        print(self.file_list)
-        # self.file_counter = 0
-        # self.current_file = self.file_list[self.file_counter]
-        # pixmap = QtGui.QPixmap(self.current_file)
-        # pixmap = pixmap.scaled(self.width(), self.height())
-        # self.label.setPixmap(pixmap)
+        self.file_list = [str(path) for path in [*Path(str(folder)).glob('*.jpg')]]
+        self.image_counter = 0
+        self.file_counter = self.file_list[self.image_counter]
+        pixmap = QtGui.QPixmap(self.file_counter)
+        self.label.setPixmap(pixmap)
 
 
     def NextImage(self):
-        if self.file_counter is not None:
-            self.file_counter += 1
-            self.file_counter %= len(self.file_list)
-            self.current_file = self.file_list[self.file_counter]
-            pixmap = QtGui.QPixmap(self.current_file)
-            pixmap = pixmap.scaled(self.width(), self.height())
+        try:
+            self.image_counter += 1
+            self.file_counter = self.file_list[self.image_counter]
+            pixmap = QtGui.QPixmap(self.file_counter)
             self.label.setPixmap(pixmap)
+        except :
+            print(f' ')
 
     def PreviosImage(self):
-        if self.file_counter is not None:
-            self.file_counter -= 1
-            self.file_counter %= len(self.file_list)
-            self.current_file = self.file_list[self.file_counter]
-            pixmap = QtGui.QPixmap(self.current_file)
-            pixmap = pixmap.scaled(self.width(), self.height())
-            self.label.setPixmap(pixmap)
+        print(self.file_counter)
 
 
 def main():
