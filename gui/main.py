@@ -1,5 +1,5 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QPushButton, QLabel, QMessageBox
-from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtGui
 import os
 import sys
@@ -9,50 +9,65 @@ class UI(QMainWindow):
     def __init__(self):
         super(UI, self).__init__()
         uic.loadUi("main.ui", self)
-
-        self.SetupUI()
-        self.SetupButtons()
-        self.SetupButtonEvents()
-        self.SetupLabels()
-
-        self.show()
-
-    def SetupUI(self):
         self.setWindowIcon(QtGui.QIcon('res/icon.jpg'))
 
-    def SetupButtons(self):
-        self.button = self.findChild(QPushButton, "pushButton")
-        self.button_2 = self.findChild(QPushButton, "pushButton_2")
+        self.current_file = QtGui.QPixmap('res/icon.jpg')
+        pixmap = QtGui.QPixmap(self.current_file)
+        self.label.setPixmap(pixmap)
+        self.label.setMinimumSize(1, 1)
+        self.file_list = None
+        self.file_counter = None
 
-    def SetupButtonEvents(self):
-        self.button.clicked.connect(self.OpenFile)
-        #self.button_2.clicked.connect(self.RecFile)
+        self.directoryButton = self.findChild(QPushButton, "pushButton")
+        self.nextButton2 = self.findChild(QPushButton, "pushButton_2")
+        self.prevButton3 = self.findChild(QPushButton, "pushButton_3")
 
-    def SetupLabels(self):
-        self.label = self.findChild(QLabel, "label")
-        self.label_3 = self.findChild(QLabel, "label_3")
-        self.label_6 = self.findChild(QLabel, "label_6")
-
+        self.directoryButton.clicked.connect(self.OpenFile)
+        self.nextButton2.clicked.connect(self.NextImage)
+        self.prevButton3.clicked.connect(self.PreviosImage)
 
     def OpenFile(self):
-        # Чтение файла
-        fileName, _ = QFileDialog.getOpenFileName(self, "Выбрать файл")
-        if fileName:
-            image = QImage(fileName)
-            if image.isNull():
-                QMessageBox.information(self, "Ошибка открытия файла", "Cannot load %s." % fileName)
-                return
-        # Отображение изображения
-        self.label.setPixmap(QPixmap.fromImage(image))
-        self.scaleFactor = 1.0
-        # Разблокировка кнопки
-        self.label_3.setText(fileName)
-        if self.label_3.text() != "":
-            self.button_2.setEnabled(True)
+        options = QFileDialog.Options()
+        filename, _ = QFileDialog.getOpenFileName(self, "Открыть", "", "Image Files (*.png, *.jpg)", options=options)
+        if filename != "":
+            self.current_file = filename
+            pixmap = QtGui.QPixmap(self.current_file)
+            self.label.setPixmap(pixmap)
+        directory = str(self, filename)
+        self.file_list = [directory + "/" + f for f in os.listdir(directory) if f.endswitch(".jpg") or f.endswitch(".png")]
+        self.file_counter = 0
+        self.current_file = self.file_list[self.file_counter]
+        pixmap = QtGui.QPixmap(self.current_file)
+        pixmap = pixmap.scaled(self.width(), self.height())
+        self.label.setPixmap(pixmap)
 
+
+    def NextImage(self):
+        if self.file_counter is not None:
+            self.file_counter += 1
+            self.file_counter %= len(self.file_list)
+            self.current_file = self.file_list[self.file_counter]
+            pixmap = QtGui.QPixmap(self.current_file)
+            pixmap = pixmap.scaled(self.width(), self.height())
+            self.label.setPixmap(pixmap)
+
+    def PreviosImage(self):
+        if self.file_counter is not None:
+            self.file_counter -= 1
+            self.file_counter %= len(self.file_list)
+            self.current_file = self.file_list[self.file_counter]
+            pixmap = QtGui.QPixmap(self.current_file)
+            pixmap = pixmap.scaled(self.width(), self.height())
+            self.label.setPixmap(pixmap)
+
+
+def main():
+    window = UI()
+    window.show()
+    return window
 
 if __name__ == "__main__":
+    import sys
     app = QApplication(sys.argv)
-    window = UI()
-    sys.exit(app.exec_())
-
+    window = main()
+    app.exec_()

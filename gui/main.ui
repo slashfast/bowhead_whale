@@ -6,20 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1179</width>
+    <width>1194</width>
     <height>463</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1179</width>
-    <height>463</height>
-   </size>
-  </property>
-  <property name="maximumSize">
-   <size>
-    <width>1179</width>
-    <height>463</height>
+    <width>0</width>
+    <height>0</height>
    </size>
   </property>
   <property name="font">
@@ -44,9 +38,9 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>600</x>
       <y>400</y>
-      <width>191</width>
+      <width>211</width>
       <height>51</height>
      </rect>
     </property>
@@ -73,7 +67,7 @@ background-color:rgb(229, 229, 229)
 }</string>
     </property>
     <property name="text">
-     <string>Открыть файл</string>
+     <string>Выбрать Директорию</string>
     </property>
     <property name="shortcut">
      <string/>
@@ -85,10 +79,10 @@ background-color:rgb(229, 229, 229)
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>230</x>
       <y>10</y>
-      <width>961</width>
-      <height>331</height>
+      <width>951</width>
+      <height>381</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -118,7 +112,7 @@ background-color: rgb(229, 229, 229)</string>
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>191</width>
+      <width>211</width>
       <height>441</height>
      </rect>
     </property>
@@ -150,14 +144,11 @@ background-color: rgb(229, 229, 229)</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_2">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>830</x>
       <y>400</y>
-      <width>191</width>
+      <width>211</width>
       <height>51</height>
      </rect>
     </property>
@@ -184,68 +175,54 @@ background-color:rgb(229, 229, 229)
 }</string>
     </property>
     <property name="text">
-     <string>Распознать</string>
+     <string>Следующее</string>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>350</y>
-      <width>821</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Constantia</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-radius: 5px;
-border: 1px solid #000;
-padding: 10px 20px;
-background-color: rgb(229, 229, 229)</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Panel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Plain</enum>
-    </property>
-    <property name="text">
+    <property name="shortcut">
      <string/>
     </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
    </widget>
-   <widget class="QLabel" name="label_4">
+   <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>350</y>
-      <width>131</width>
-      <height>41</height>
+      <x>370</x>
+      <y>400</y>
+      <width>211</width>
+      <height>51</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Constantia</family>
       <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-radius: 5px;
+     <string notr="true">QPushButton{
+border-radius: 5px;
 border: 1px solid #000;
-background-color: rgb(229, 229, 229)</string>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::Box</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
+}
+
+QPushButton:hover{
+background-color:rgb(229, 229, 229)
+}</string>
     </property>
     <property name="text">
-     <string>Путь к Файлу:</string>
+     <string>Предыдущее</string>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
     </property>
    </widget>
   </widget>
