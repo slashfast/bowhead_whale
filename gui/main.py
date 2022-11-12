@@ -5,8 +5,8 @@ from pathlib import Path
 import os
 import sys
 
-class UI(QMainWindow):
 
+class UI(QMainWindow):
 
     def __init__(self):
         super(UI, self).__init__()
@@ -24,33 +24,35 @@ class UI(QMainWindow):
         self.nextButton2 = self.findChild(QPushButton, "pushButton_2")
         self.prevButton3 = self.findChild(QPushButton, "pushButton_3")
 
-        self.directoryButton.clicked.connect(self.OpenFile)
-        self.nextButton2.clicked.connect(self.NextImage)
-        self.prevButton3.clicked.connect(self.PreviosImage)
+        self.directoryButton.clicked.connect(self.open_file)
+        self.nextButton2.clicked.connect(self.next_image)
+        self.prevButton3.clicked.connect(self.previous_image)
 
-    def OpenFile(self):
-        options = QFileDialog.Options()
-        folder = QFileDialog.getExistingDirectory(self)
-        self.file_list = [str(path) for path in [*Path(str(folder)).glob('*.jpg')]]
+    def open_file(self):
+        folder = QFileDialog.getExistingDirectory()
+        self.file_list = [str(file) for file in [*Path(str(folder)).glob('**/*.jpg')]]
         self.image_counter = 0
         self.file_counter = self.file_list[self.image_counter]
         pixmap = QtGui.QPixmap(self.file_counter)
         self.label.setPixmap(pixmap)
         print(self.image_counter)
+        print(self.file_list)
 
-
-    def NextImage(self):
+    def next_image(self):
         try:
             self.file_counter = self.file_list[abs(self.image_counter + 1)]
+            print(Path(self.file_counter).name)
             self.image_counter += 1
             pixmap = QtGui.QPixmap(self.file_counter)
             self.label.setPixmap(pixmap)
-        except :
+            print()
+        except:
             pass
 
-    def PreviosImage(self):
+    def previous_image(self):
         try:
             self.file_counter = self.file_list[abs(self.image_counter - 1)]
+            print(Path(self.file_counter).name)
             self.image_counter -= 1
             pixmap = QtGui.QPixmap(self.file_counter)
             self.label.setPixmap(pixmap)
@@ -63,8 +65,10 @@ def main():
     window.show()
     return window
 
+
 if __name__ == "__main__":
     import sys
+
     app = QApplication(sys.argv)
     window = main()
     app.exec_()
