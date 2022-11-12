@@ -1,6 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow, QApplication, QFileDialog, QPushButton, QLabel, QMessageBox
 from PyQt5.QtWidgets import *
 from PyQt5 import uic, QtGui
+from pathlib import Path
 import os
 import sys
 
@@ -28,18 +29,16 @@ class UI(QMainWindow):
 
     def OpenFile(self):
         options = QFileDialog.Options()
-        filename, _ = QFileDialog.getOpenFileName(self, "Открыть", "", "Image Files (*.png, *.jpg)", options=options)
-        if filename != "":
-            self.current_file = filename
-            pixmap = QtGui.QPixmap(self.current_file)
-            self.label.setPixmap(pixmap)
-        directory = str(self, filename)
-        self.file_list = [directory + "/" + f for f in os.listdir(directory) if f.endswitch(".jpg") or f.endswitch(".png")]
-        self.file_counter = 0
-        self.current_file = self.file_list[self.file_counter]
-        pixmap = QtGui.QPixmap(self.current_file)
-        pixmap = pixmap.scaled(self.width(), self.height())
-        self.label.setPixmap(pixmap)
+        folder = QFileDialog.getExistingDirectory(self)
+        print(str(folder))
+        self.file_list = [str(path) for path in [*Path(str(folder)).glob('*')]]
+        # self.file_list = [*Path(str(folder)).glob('*')]
+        print(self.file_list)
+        # self.file_counter = 0
+        # self.current_file = self.file_list[self.file_counter]
+        # pixmap = QtGui.QPixmap(self.current_file)
+        # pixmap = pixmap.scaled(self.width(), self.height())
+        # self.label.setPixmap(pixmap)
 
 
     def NextImage(self):
