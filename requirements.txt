@@ -43,7 +43,7 @@ packaging==21.3
 pandocfilters==1.5.0
 parso==0.8.3
 pickleshare==0.7.5
-pip==21.3.1
+pip==22.3.1
 platformdirs==2.5.3
 prometheus-client==0.15.0
 prompt-toolkit==3.0.32
@@ -74,3 +74,4 @@ webencodings==0.5.1
 websocket-client==1.4.2
 wheel==0.37.1
 widgetsnbextension==4.0.3
+
