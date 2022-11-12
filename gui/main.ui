@@ -38,15 +38,13 @@
     <normaloff>.</normaloff>.</iconset>
   </property>
   <property name="styleSheet">
-   <string notr="true">QWidget{
-  background-color #121212;
-}</string>
+   <string notr="true">background-color: rgb(217, 217, 217);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>10</x>
+      <x>420</x>
       <y>400</y>
       <width>191</width>
       <height>51</height>
@@ -54,6 +52,7 @@
     </property>
     <property name="font">
      <font>
+      <family>Constantia</family>
       <pointsize>14</pointsize>
       <weight>50</weight>
       <italic>false</italic>
@@ -64,10 +63,23 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">QPushButton{
+border-radius: 5px;
+border: 1px solid #000;
+}
+
+QPushButton:hover{
+background-color:rgb(229, 229, 229)
+}</string>
     </property>
     <property name="text">
      <string>Открыть файл</string>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -75,12 +87,15 @@
      <rect>
       <x>210</x>
       <y>10</y>
-      <width>950</width>
-      <height>441</height>
+      <width>961</width>
+      <height>331</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">border-radius: 5px;
+border: 1px solid #000;
+padding: 10px 20px;
+background-color: rgb(229, 229, 229)</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -104,11 +119,19 @@
       <x>10</x>
       <y>10</y>
       <width>191</width>
-      <height>391</height>
+      <height>441</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+     </font>
+    </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">border-radius: 5px;
+border: 1px solid #000;
+padding: 10px 20px;
+background-color: rgb(229, 229, 229)</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -124,6 +147,105 @@
     </property>
     <property name="alignment">
      <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>400</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-radius: 5px;
+border: 1px solid #000;
+}
+
+QPushButton:hover{
+background-color:rgb(229, 229, 229)
+}</string>
+    </property>
+    <property name="text">
+     <string>Распознать</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>350</y>
+      <width>821</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px;
+border: 1px solid #000;
+padding: 10px 20px;
+background-color: rgb(229, 229, 229)</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Panel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Plain</enum>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>350</y>
+      <width>131</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-radius: 5px;
+border: 1px solid #000;
+background-color: rgb(229, 229, 229)</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::Box</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <property name="text">
+     <string>Путь к Файлу:</string>
     </property>
    </widget>
   </widget>
