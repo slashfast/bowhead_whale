@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1194</width>
-    <height>463</height>
+    <height>465</height>
    </rect>
   </property>
   <property name="minimumSize">
@@ -38,7 +38,7 @@
    <widget class="QPushButton" name="pushButton">
     <property name="geometry">
      <rect>
-      <x>600</x>
+      <x>970</x>
       <y>400</y>
       <width>211</width>
       <height>51</height>
@@ -67,7 +67,7 @@ background-color:rgb(229, 229, 229)
 }</string>
     </property>
     <property name="text">
-     <string>Выбрать Директорию</string>
+     <string>Выбор Директории</string>
     </property>
     <property name="shortcut">
      <string/>
@@ -146,9 +146,9 @@ background-color: rgb(229, 229, 229)</string>
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>830</x>
+      <x>520</x>
       <y>400</y>
-      <width>211</width>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
@@ -187,9 +187,9 @@ background-color:rgb(229, 229, 229)
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>370</x>
+      <x>230</x>
       <y>400</y>
-      <width>211</width>
+      <width>151</width>
       <height>51</height>
      </rect>
     </property>
@@ -223,6 +223,66 @@ background-color:rgb(229, 229, 229)
     </property>
     <property name="autoRepeat">
      <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>390</x>
+      <y>400</y>
+      <width>121</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>14</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <kerning>false</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+border-radius: 5px;
+border: 1px solid #000;
+}
+
+QPushButton:hover{
+background-color:rgb(229, 229, 229)
+}</string>
+    </property>
+    <property name="text">
+     <string>Анализ</string>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="checkBox">
+    <property name="geometry">
+     <rect>
+      <x>680</x>
+      <y>400</y>
+      <width>261</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Constantia</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string>Автоанализ изображения</string>
     </property>
    </widget>
   </widget>
